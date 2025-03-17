@@ -632,21 +632,6 @@ ggplot(filtered_data, aes(x = energy, y = energy)) +
        y = "Speechiness") +
   theme_minimal()
 
-# Perform summarization and assign the result to fil5
-fil5 <- spotify2 %>%
-  group_by(rescaled_popularity) %>%
-  summarise(across(everything(), mean, na.rm = TRUE))
-
-
-# Assuming popularity_category is a variable in fil5
-ggplot(fil5, aes(x = liveness, y = popularity_category)) +
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = count), stat = "count", vjust = -0.5, color = "black") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.25, hjust = 0.50))
-
-
-#---------------saving the file in csv---------------------------
-write.csv(fil5, file = "mydata.csv", row.names = FALSE)
-write.csv(spotify2, file = "data2.csv", row.names = FALSE)
+#---------------------------The End-----------------------------------------
 
 
